@@ -1,0 +1,19 @@
+<li class='list-group-item'>
+	{{ item.name}}
+	<br />
+	<form method='POST' action='/products/{{ item.id }}?_method=DELETE'>
+	<button type='submit' class='btn btn-danger'>Delete</button>
+
+	<form method='PUT' action='/products/edit'>
+	<button type='submit' class='btn btn-danger'>Edit</button>
+	{% if showForm %}
+		<form method='PUT' action='/products/{{ item.name }}/{{ item.id }}'>
+		<label for="text_field">Edit Product:</label>
+        <input name="content" type="text" id="text_field" style="width: 350px;" />
+        <input type="submit" value="Submit" />
+	{% endif %}
+
+
+
+	</form>
+</li>
