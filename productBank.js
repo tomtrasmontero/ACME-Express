@@ -11,7 +11,7 @@ var products = [
 
 
 function addID(){
-	var idNum = products.length;
+	var idNum = 2; //current product is #2, idNum is unique identifier
 	idNum++;
 	return idNum;
 } 
@@ -23,6 +23,7 @@ function editName(id,name){
 		}
 	}		
 }
+
 
 module.exports = {
 	getProducts: function(){
@@ -42,7 +43,7 @@ module.exports = {
 
 	},
 	editProduct: function(id, name){
-		editName(id,name);		
+		editName(id,name);	
 	}
 };
 

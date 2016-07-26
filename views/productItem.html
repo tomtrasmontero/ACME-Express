@@ -1,19 +1,23 @@
 <li class='list-group-item'>
 	{{ item.name}}
-	<br />
-	<form method='POST' action='/products/{{ item.id }}?_method=DELETE'>
-	<button type='submit' class='btn btn-danger'>Delete</button>
+	<br>
+		<form method='POST' action='/products/{{ item.id }}?_method=DELETE'>
+		<button type='submit' class='btn btn-danger'>Delete</button>
+		</form>
+	
+	{% if showForm1 %}
 
-	<form method='PUT' action='/products/edit'>
-	<button type='submit' class='btn btn-danger'>Edit</button>
+		<form method='POST' action='/products/edit'>
+		<button type='submit' class='btn btn-danger'>Edit</button>
+		</form>
+	{% endif %}
+
 	{% if showForm %}
-		<form method='PUT' action='/products/{{ item.name }}/{{ item.id }}'>
+		<form method='POST' action='/edit/{{ item.id }}/{{ item.name }}'>
 		<label for="text_field">Edit Product:</label>
         <input name="content" type="text" id="text_field" style="width: 350px;" />
         <input type="submit" value="Submit" />
+        </form>
 	{% endif %}
 
-
-
-	</form>
 </li>
