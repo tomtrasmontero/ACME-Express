@@ -1,23 +1,19 @@
 <li class='list-group-item'>
 	{{ item.name}}
-	<br>
-		<form method='POST' action='/products/{{ item.id }}?_method=DELETE'>
+	
+	{% if !showForm %}
+		<a  class='btn btn-danger pull-right' href='/products/edit'>Edit</a>
+  {% else %}
+		<form style='display:inline' method='POST' action='/products/{{ item.id }}?_method=PUT'>
+      <label for="text_field">Edit Product:</label>
+      <input name="content" class='form-control' type="text" id="text_field" value='{{ item.name }}' style="width: 350px;" />
+      <button class='btn btn-primary' type="submit">Save</button>
+      <a  class='btn btn-default' href='/products'>Cancel</a>
+    </form>
+		<form style='display:inline' method='POST' action='/products/{{ item.id }}?_method=DELETE'>
 		<button type='submit' class='btn btn-danger'>Delete</button>
 		</form>
-	
-	{% if showForm1 %}
-
-		<form method='POST' action='/products/edit'>
-		<button type='submit' class='btn btn-danger'>Edit</button>
-		</form>
 	{% endif %}
-
-	{% if showForm %}
-		<form method='POST' action='/edit/{{ item.id }}/{{ item.name }}'>
-		<label for="text_field">Edit Product:</label>
-        <input name="content" type="text" id="text_field" style="width: 350px;" />
-        <input type="submit" value="Submit" />
-        </form>
-	{% endif %}
+  <br clear='all' />
 
 </li>

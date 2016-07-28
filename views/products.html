@@ -4,10 +4,12 @@
 	Products Listing
 </div>
 	<br>
-	<form action="/products" method="POST">
-		<label for="text_field"> Product to Add:</label>
-		<input name="content" type="text" id="text_field" style="width: 250px;" />
-		<input type="submit" value="Add item" />
+	<form class='well' action="/products" method="POST">
+    <div class='form-group'>
+      <label for="text_field"> Product to Add:</label>
+      <input name="content" type="text" id="text_field" class='form-control' />
+    </div>
+    <button type="submit" class='btn btn-primary'/>Add item</button>
 	</form>
 	<ul class='list-group'>
 		{% for item in product %}
